@@ -2,89 +2,16 @@
 
 **[ICRA 2026] PERAL: perception-aware motion control for passive LiDAR excitation in spherical robots**
 
-This repository contains the complete hardware design, bill of materials (BOM), and software for the PERAL spherical robot - a research platform for studying perception-aware motion control for passive LiDAR excitation.
+This repository contains the complete hardware design, and software for the PERAL spherical robot - a research platform for studying perception-aware motion control for passive LiDAR excitation.
 
-## 📋 Repository Contents
-
-This repository is organized into three main sections:
-
-### 🔧 Hardware Design
-Complete mechanical and electronic designs for building the robot.
-- **Location:** [`hardware/`](hardware/)
-- **Contents:** CAD files, PCB schematics, mechanical drawings
-- **Documentation:** [Hardware README](hardware/README.md)
-
-### 📦 Bill of Materials (BOM)
-Comprehensive list of all components needed to build the robot.
-- **Location:** [`BOM.md`](BOM.md)
-- **Contents:** Mechanical parts, electronics, sensors, tools required
-- **Status:** Template provided - needs customization for your specific design
-
-### 💻 Software & Firmware
-All code for robot control and operation.
-- **Location:** [`software/`](software/)
-- **Contents:** 
-  - Microcontroller firmware ([`software/firmware/`](software/firmware/))
-  - High-level control algorithms ([`software/control/`](software/control/))
-  - Simulation tools ([`software/simulation/`](software/simulation/))
-- **Documentation:** [Software README](software/README.md)
-
-### 📚 Documentation
-Assembly instructions and usage guides.
-- **Location:** [`docs/`](docs/)
-- **Contents:**
-  - Assembly instructions ([`docs/assembly/`](docs/assembly/))
-  - Usage guides ([`docs/usage/`](docs/usage/))
-
-## 🚀 Quick Start
-
-### For Building the Robot
-
-1. **Review the BOM**: Check [`BOM.md`](BOM.md) and order all required components
-2. **Hardware Design**: Review [`hardware/`](hardware/) for CAD files and schematics
-3. **Fabrication**: Manufacture or 3D print mechanical parts, order PCBs
-4. **Assembly**: Follow the step-by-step guide in [`docs/assembly/`](docs/assembly/)
-5. **Software Setup**: Install firmware and control software from [`software/`](software/)
-
-### For Software Development
+### For Development
 
 ```bash
 # Clone the repository
 git clone https://github.com/snakehaihai/PERAL_robot_design.git
 cd PERAL_robot_design
 
-# For firmware development (microcontroller)
-cd software/firmware
-# Follow firmware/README.md for setup
-
-# For control software (high-level)
-cd software/control
-pip install -r requirements.txt
-python main.py
 ```
-
-## 🤖 Robot Overview
-
-### Design Features
-
-- **Spherical Shell**: Transparent outer shell for LiDAR penetration
-- **Omnidirectional Motion**: Internal drive mechanism for flexible movement
-- **Sensor Suite**: IMU for orientation, optional encoders
-- **Wireless Control**: WiFi/Bluetooth connectivity
-- **Modular Design**: Easy maintenance and component replacement
-
-### Key Specifications
-
-| Parameter | Value (Example) |
-|-----------|----------------|
-| Shell Diameter | TBD mm |
-| Weight | ~2.0 kg |
-| Battery | 11.1V LiPo |
-| Runtime | TBD minutes |
-| Max Speed | TBD m/s |
-| Microcontroller | ESP32/STM32 |
-
-*Note: Specifications marked as TBD need to be filled in based on your final design*
 
 ## 📖 Research Context
 
@@ -97,13 +24,10 @@ The PERAL robot is designed for research on:
 ## 🏗️ Project Status
 
 ### Current Status
-- [x] Repository structure created
-- [x] Documentation templates provided
-- [ ] Hardware CAD models (to be added)
-- [ ] Electronics schematics (to be added)
-- [ ] Firmware implementation (to be added)
-- [ ] Control algorithms implementation (to be added)
-- [ ] Testing and validation (to be added)
+- [x] ROS2 workspace
+- [x] Hardware Documentation
+- [x] microros_esp32
+- [ ] Update README
 
 ### Getting Involved
 
@@ -120,42 +44,35 @@ This is an open research project. Contributions are welcome!
 ```
 PERAL_robot_design/
 ├── README.md                 # This file
-├── BOM.md                    # Bill of materials
 ├── LICENSE                   # License file
-├── hardware/                 # Hardware design files
-│   ├── cad/                 # CAD models
-│   ├── electronics/         # Schematics and PCB
-│   └── mechanical/          # Technical drawings
-├── software/                 # Software and firmware
-│   ├── firmware/            # Microcontroller code
-│   ├── control/             # High-level algorithms
-│   └── simulation/          # Simulation tools
-└── docs/                     # Documentation
-    ├── assembly/            # Assembly instructions
-    └── usage/               # Usage guides
+├── haloball/src              # ROS workspace
+│   ├── FAST_LIO/             
+│   ├── haloball_bringup/     # Centralised package to manage FAST-LIO and livox_ros_driver2
+│   ├── livox_ros_driver2/    # Used by MID-360 LiDAR
+│   └── nmpc_acados/          # NMPC
+├── hardware documentation/   
+│   ├── 3D model/
+│   ├── ESP32-C3 SuperMini/
+│   ├── Motor and Drivers/
+│   ├── Kinematics.png
+│   └── haloball_documentation.xlsx # Refer together with Kinematics.png
+└── microros_esp32/           # To be flashed on esp32
+    ├── include/             
+    ├── lib/               
+    ├── src/               
+    └── README.md            # Refer for instruction
 ```
 
 ## 🛠️ Development Tools
 
 ### Hardware
-- **CAD Software**: FreeCAD, Fusion 360, SolidWorks
-- **EDA Software**: KiCad, Eagle, Altium
-- **3D Printing**: PLA/PETG for prototypes
+- **CAD Software**: FreeCAD
+- **3D Printing**: PLA for prototypes
 
 ### Software
-- **Firmware**: PlatformIO, Arduino IDE
+- **Firmware**: PlatformIO, ROS2
 - **Languages**: C++, Python
 - **Version Control**: Git
-- **Simulation**: Gazebo, custom simulators
-
-## 📝 Documentation
-
-Detailed documentation is available in each subdirectory:
-- [Hardware Documentation](hardware/README.md)
-- [Software Documentation](software/README.md)
-- [Firmware Documentation](software/firmware/README.md)
-- [Control Software Documentation](software/control/README.md)
-- [Assembly Instructions](docs/assembly/README.md)
 
 ## 🔬 Research & Publication
 
@@ -191,15 +108,8 @@ This project is licensed under the terms specified in the [LICENSE](LICENSE) fil
 ## 🙏 Acknowledgments
 
 - Research team and contributors
-- Open-source community
-- Hardware/software libraries used
-
-## 🔗 Related Resources
-
-- Spherical robot research papers
-- LiDAR perception papers
-- Motion control literature
-- Related open-source robot projects
+- [FAST_LIO_ROS2](https://github.com/Ericsii/FAST_LIO_ROS2)
+- [ACADOS](https://github.com/acados/acados)
 
 ---
 

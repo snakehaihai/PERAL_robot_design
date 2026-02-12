@@ -3,7 +3,7 @@
 	url = https://github.com/JasonY85/FAST-LIO.git
 	branch = humble
 
-[submodule "haloball/src/another-lib"]
+[submodule "haloball/src/livox_ros_driver2"]
 	path = haloball/src/livox_ros_driver2
 	url = https://github.com/JasonY85/livox_ros_driver2.git
 	branch = humble

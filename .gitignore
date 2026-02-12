@@ -28,11 +28,6 @@ htmlcov/
 
 # PlatformIO
 .pio/
-.pioenvs/
-.piolibdeps/
-.vscode/
-.clang_complete
-.gcc-flags.json
 
 # Arduino
 *.hex

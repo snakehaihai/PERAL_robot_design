@@ -49,10 +49,6 @@ After setting up the microROS agent, run:
 ```
 ros2 run teleop_twist_keyboard teleop_twist_keyboard
 ```
-OR
-
-Download Dabble app from the playstore and control using gamepad via bluetooth.
-
 ## 3. Topics
 Subscriber: /cmd_vel
 

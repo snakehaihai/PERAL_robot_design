@@ -27,7 +27,6 @@ The PERAL robot is designed for research on:
 - [x] ROS2 workspace
 - [x] Hardware Documentation
 - [x] microros_esp32
-- [ ] Update README
 
 ### Getting Involved
 
@@ -38,30 +37,6 @@ This is an open research project. Contributions are welcome!
 3. Commit your changes
 4. Push to the branch
 5. Create a Pull Request
-
-## 📂 Directory Structure
-
-```
-PERAL_robot_design/
-├── README.md                 # This file
-├── LICENSE                   # License file
-├── haloball/src              # ROS workspace
-│   ├── FAST_LIO/             
-│   ├── haloball_bringup/     # Centralised package to manage FAST-LIO and livox_ros_driver2
-│   ├── livox_ros_driver2/    # Used by MID-360 LiDAR
-│   └── nmpc_acados/          # NMPC
-├── hardware documentation/   
-│   ├── 3D model/
-│   ├── ESP32-C3 SuperMini/
-│   ├── Motor and Drivers/
-│   ├── Kinematics.png
-│   └── haloball_documentation.xlsx # Refer together with Kinematics.png
-└── microros_esp32/           # To be flashed on esp32
-    ├── include/             
-    ├── lib/               
-    ├── src/               
-    └── README.md            # Refer for instruction
-```
 
 ## 🛠️ Development Tools
 

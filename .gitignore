@@ -90,7 +90,6 @@ simulation/output/
 
 # PCB manufacturing
 gerber/
-*.zip
 
 # Backup files
 *.backup

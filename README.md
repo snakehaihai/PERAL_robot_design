@@ -28,6 +28,9 @@ The PERAL robot is designed for research on:
 - [x] Hardware Documentation
 - [x] microros_esp32
 
+### PERAL_haloball_16cm_collected_data
+https://drive.google.com/drive/folders/11oco7sjT3m4vz_YTVy2H7elOw8T4v1Sy?usp=sharing
+
 ### Getting Involved
 
 This is an open research project. Contributions are welcome!

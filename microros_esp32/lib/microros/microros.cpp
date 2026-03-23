@@ -29,9 +29,26 @@ const unsigned long speed_publish_interval = 100; // 100ms, 10Hz
 
 bool connected_before = false;
 
+float sine_amplitude = 0.01; // m/s
+float sine_frequency = 0.5; // Hz
+bool sine_augmentation_enabled = false;
+
 void cmd_vel_callback(const void *msg_in) {
-    const auto *msg = (const geometry_msgs__msg__Twist *)msg_in;    
-    linear_vel = msg->linear.x;
+    const auto *msg = (const geometry_msgs__msg__Twist *)msg_in;
+    // Store the original linear command    
+    float original_linear_vel = msg->linear.x;
+
+    if (sine_augmentation_enabled) {
+        // Get time in seconds
+        float t = millis() / 1000.0f;
+        // Compute sine component
+        float sine_component = sine_amplitude * sin(2 * M_PI * sine_frequency * t);
+
+        linear_vel = original_linear_vel + sine_component;
+    }else{
+        linear_vel = original_linear_vel;
+    }
+
     angular_vel = msg->angular.z;
 
     last_cmd_vel_time = millis();

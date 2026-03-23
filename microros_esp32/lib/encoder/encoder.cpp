@@ -59,6 +59,6 @@ void setup_encoders() {
 // Calculate speed in rad/s from encoder counts
 float calculate_speed(int encoder_count, float delta_time, int encoder_cpr) {
   float revolutions = encoder_count / (float)encoder_cpr;
-  float rad_per_sec = (revolutions * 2 * PI) / delta_time;
+  float rad_per_sec = (revolutions * 2 * M_PI) / delta_time;
   return rad_per_sec;
 }
